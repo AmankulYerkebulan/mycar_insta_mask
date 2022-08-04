@@ -11,7 +11,7 @@ Promise.all([
     const timerCountText = results[0];
     Patches.outputs.getScalar('Timer').then(timerObj => {
         timerObj.monitor().subscribe(function (timerEvent) {
-            if (timerEvent.newValue > 0) {
+            if (timerEvent.newValue > 0.01) {
                 timerCountText.text = timerEvent.newValue.toFixed(2).toString();
             }
         });
